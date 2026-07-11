@@ -16,6 +16,7 @@
 # Build artifacts
 build/
 *.pdf.bbl
+main.idx
 
 # OS / editor cruft
 .DS_Store
