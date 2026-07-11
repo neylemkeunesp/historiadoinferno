@@ -14,6 +14,11 @@ Repositório do livro **História do Inferno: Edição Expandida e Complementada
 └── build/                # Artefatos de compilação (ignorado)
 ```
 
+## Dependências
+
+- TeX Live com `memoir`, `abntex2cite`, `latexmk` e `makeindex`;
+- Git LFS para obter as imagens do repositório.
+
 ## Compilação
 
 ```bash
@@ -29,7 +34,20 @@ Ou com `latexmk`:
 latexmk -pdf main.tex
 ```
 
+O fluxo recomendado gera os artefatos em `build/`:
+
+```bash
+make pdf
+```
+
+Para remover os artefatos gerados:
+
+```bash
+make clean
+```
+
 ## Notas
 
 - Arquivos `*.pdf`, `*.png`, `*.jpg` são versionados via **Git LFS**.
 - Arquivos auxiliares LaTeX (`.aux`, `.log`, `.out`, `.toc`, `.bbl`, `.blg`) são regenerados na compilação e ficam fora do versionamento.
+- O índice remissivo é atualizado automaticamente durante a compilação com `latexmk`.

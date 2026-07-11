@@ -22,6 +22,9 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{booktabs}
+\usepackage{makeidx}
+
+\makeindex
 
 % ---------- Configuração de imagens ----------
 \graphicspath{{figuras/}}
@@ -30,6 +33,7 @@
 % ---------- Hiperlinks (cores sóbrias) ----------
 \hypersetup{
   colorlinks=true,
+  hypertexnames=false,
   linkcolor=red!70!black,
   citecolor=blue!70!black,
   urlcolor=blue!70!black,
@@ -38,6 +42,8 @@
   pdfsubject={Análise interdisciplinar da evolução histórica dos conceitos de inferno},
   pdfkeywords={inferno; escatologia; história das religiões; teologia; mitologia}
 }
+
+\setlength{\emergencystretch}{2em}
 
 % ---------- Tipografia memoir ----------
 % A4 (210x297mm) com margens de livro -- margens internas maiores
@@ -120,8 +126,8 @@
 
 % ---------- Back matter ----------
 \backmatter
-\include{capitulos/bibliografia}
 \include{capitulos/indice_remissivo}
+\include{capitulos/bibliografia}
 \include{capitulos/apendices}
 
 \end{document}
