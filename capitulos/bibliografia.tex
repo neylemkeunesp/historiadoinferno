@@ -1,0 +1,35 @@
+% ============================================================
+%  Bibliografia — autor-data (NBR 6023 + ABNT similar)
+% ============================================================
+
+% --- Bibliografia ---
+\chapter[Bibliografia]{Bibliografia}
+
+
+\epigraph{Referências acadêmicas e fontes primárias consultadas ao longo do livro, formatadas em estilo autor-data. As citações no corpo do texto remetem ao sobrenome do autor e ao ano de publicação.}
+
+\renewcommand{\bibsection}{\section*{}}
+\renewcommand{\bibname}{}
+
+% Estilo natbib 'plainnat' autor-data; tamanho de fonte reduzido para caber na página.
+\begingroup
+\small
+% Estilo 'abntex2-alf' = ABNT NBR 6023 autor-data alfabético
+% Configurado via \usepackage[alf]{abntex2cite} no main.tex
+\bibliography{referencias}
+\endgroup
+
+% --- Fontes primárias (textos antigos citados no livro) ---
+\section*{Fontes Primárias}
+
+\begin{description}[leftmargin=2em,style=nextline]
+  \item[Enoque (Livro de)] Texto apócrifo judaico, séc. III a.C. In: \textsc{Charlesworth}, James H. (Ed.). \textit{The Old Testament Pseudepigrapha}. Vol. 1. New York: Doubleday, 1983.
+  \item[Apocalipse de Pedro] Texto apócrifo cristão, séc. II. In: \textsc{Elliott}, J. K. (Ed.). \textit{The Apocryphal New Testament}. Oxford: Clarendon Press, 1993.
+  \item[Dante Alighieri] A Divina Comédia. Ed. crítica de Giorgio Petrocchi. Milano: Mondadori, 1966--1967.
+  \item[Visão de Túndalo (Visio Tnugdali)] Ed. \textsc{Wagner}, Albrecht. Erlangen: Deichert, 1882.
+  \item[Popol Vuh] Trad. \textsc{Tedlock}, Dennis. New York: Simon \& Schuster, 1996.
+  \item[Tractatus de Purgatorio Sancti Patricii] Séc. XII, manuscrito medieval irlandês sobre a entrada ao purgatório através da caverna de Cruachan.
+  \item[Virgílio] \textit{Eneida}, Livro VI. Composições sobre o submundo no imaginário romano. (Texto base: Mynors, R. A. B. (Ed.), Oxford: Oxford University Press, 1969.)
+\end{description}
+
+% (limpeza removida - estava gerando "paramundefined" no PDF)

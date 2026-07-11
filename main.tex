@@ -1,0 +1,127 @@
+% ============================================================
+%  História do Inferno — Edição Expandida e Complementada
+%  Conversão .docx → LaTeX (memoir + babel pt-br)
+% ============================================================
+\documentclass[11pt,a4paper,openright,twoside]{memoir}
+
+% ---------- Pacotes essenciais ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[alf,abnt-emphasize=bf,abnt-etal-list=3]{abntex2cite}
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{booktabs}
+
+% ---------- Configuração de imagens ----------
+\graphicspath{{figuras/}}
+\setkeys{Gin}{width=\linewidth,keepaspectratio}
+
+% ---------- Hiperlinks (cores sóbrias) ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=red!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black,
+  pdftitle={História do Inferno: Edição Expandida e Complementada},
+  pdfauthor={Ney Lemke},
+  pdfsubject={Análise interdisciplinar da evolução histórica dos conceitos de inferno},
+  pdfkeywords={inferno; escatologia; história das religiões; teologia; mitologia}
+}
+
+% ---------- Tipografia memoir ----------
+% A4 (210x297mm) com margens de livro -- margens internas maiores
+% (binding) e externas menores; margens verticais balanceadas.
+\linespread{1.15}
+\setlrmarginsandblock{2.5cm}{2.0cm}{*}
+\setulmarginsandblock{2.8cm}{2.8cm}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
+
+% ---------- Cabeçalhos / rodapés ----------
+% Estilo custom 'klimt' baseado no ruled: título do capítulo aparece em
+% AMBAS as páginas (par e ímpar), número da página fica no rodapé central.
+\makepagestyle{klimt}
+\makeheadrule{klimt}{\textwidth}{\normalrulethickness}
+\makeevenhead{klimt}{\footnotesize\leftmark}{}{}
+\makeoddhead{klimt}{}{}{\footnotesize\leftmark}
+\makeevenfoot{klimt}{\thepage}{}{}
+\makeoddfoot{klimt}{}{}{\thepage}
+\makeheadfootruleprefix{klimt}{}{}{}{}
+\pagestyle{klimt}
+
+% Define um pagestyle 'plainklimt' para abertura de capítulo: sem header,
+% só rodapé com número e título do livro.
+\copypagestyle{plainklimt}{plain}
+\aliaspagestyle{chapter}{plainklimt}
+
+% Marca de capítulo = alias curto definido em \chapter[alias]{titulo}
+% (o memoir usa o alias no TOC e nos headers automaticamente)
+
+% ---------- Epígrafes dos capítulos (ajustadas para A4) ----------
+\setlength{\epigraphwidth}{0.65\textwidth}
+\renewcommand{\epigraphflush}{flushright}
+\renewcommand{\epigraphsize}{\footnotesize}
+
+% ---------- Estilo de capítulo (memoir) ----------
+% 'hangnum' tem numero centrado acima do título, dentro da area de texto.
+% Acomoda numeros de 1 ou 2 dígitos sem cortar nas bordas.
+\chapterstyle{hangnum}
+\renewcommand{\chaptitlefont}{\normalfont\Large\scshape}
+\renewcommand{\printchaptertitle}[1]{\chaptitlefont\centering\MakeUppercase{#1}}
+% Capítulo: garante que o leftmark no cabeçalho só tem o alias curto,
+% sem prefixo "Capítulo X" duplicado.
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% ---------- Estilo de parte ----------
+\renewcommand{\partnamefont}{\normalfont\Large\scshape}
+\renewcommand{\partnumfont}{\normalfont\huge\scshape}
+\renewcommand{\printparttitle}[1]{\partnamefont\centering\MakeUppercase{#1}}
+
+% ---------- Caption de figuras ----------
+\captionsetup{font=small,labelfont={bf,small},labelsep=period,justification=centering}
+
+% ---------- Compilação silenciosa ----------
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% ============================================================
+%   DOCUMENTO
+% ============================================================
+\begin{document}
+
+% ---------- Front matter ----------
+\frontmatter
+\include{frontmatter}
+
+% ---------- Sumário ----------
+\clearpage
+\tableofcontents
+\clearpage
+
+% ---------- Corpos (partes/capítulos) ----------
+\mainmatter
+\include{capitulos/parte1}
+\include{capitulos/parte2}
+\include{capitulos/parte3}
+\include{capitulos/parte4}
+\include{capitulos/parte5}
+
+% ---------- Back matter ----------
+\backmatter
+\include{capitulos/bibliografia}
+\include{capitulos/indice_remissivo}
+\include{capitulos/apendices}
+
+\end{document}
